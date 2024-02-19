@@ -8,19 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		774B1DAF2B8359AF001A9467 /* DogListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DAE2B8359AF001A9467 /* DogListApp.swift */; };
-		774B1DB12B8359AF001A9467 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DB02B8359AF001A9467 /* ContentView.swift */; };
 		774B1DB32B8359B2001A9467 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774B1DB22B8359B2001A9467 /* Assets.xcassets */; };
 		774B1DB62B8359B2001A9467 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774B1DB52B8359B2001A9467 /* Preview Assets.xcassets */; };
 		774B1DBD2B835A72001A9467 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DBC2B835A72001A9467 /* SplashScreenView.swift */; };
+		774B1DCB2B837A9E001A9467 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DCA2B837A9E001A9467 /* NetworkClient.swift */; };
+		774B1DCD2B837AAF001A9467 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DCC2B837AAF001A9467 /* HTTPClient.swift */; };
+		774B1DCF2B837AC9001A9467 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DCE2B837AC9001A9467 /* RequestError.swift */; };
+		774B1DD12B837AE0001A9467 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DD02B837AE0001A9467 /* RequestMethod.swift */; };
+		774B1DD32B837AED001A9467 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DD22B837AED001A9467 /* Endpoint.swift */; };
+		774B1DD62B837B21001A9467 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DD52B837B20001A9467 /* Breed.swift */; };
+		774B1DD82B837B3E001A9467 /* BreedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DD72B837B3E001A9467 /* BreedResponse.swift */; };
+		774B1DDA2B837B60001A9467 /* BreedEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DD92B837B60001A9467 /* BreedEndPoint.swift */; };
+		774B1DDC2B837B70001A9467 /* BreedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DDB2B837B70001A9467 /* BreedViewModel.swift */; };
+		774B1DDE2B837B93001A9467 /* BreedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DDD2B837B93001A9467 /* BreedView.swift */; };
+		774B1DE02B837BB4001A9467 /* BreedViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DDF2B837BB4001A9467 /* BreedViewRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		774B1DAB2B8359AF001A9467 /* DogList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774B1DAE2B8359AF001A9467 /* DogListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListApp.swift; sourceTree = "<group>"; };
-		774B1DB02B8359AF001A9467 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		774B1DB22B8359B2001A9467 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		774B1DB52B8359B2001A9467 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		774B1DBC2B835A72001A9467 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		774B1DCA2B837A9E001A9467 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		774B1DCC2B837AAF001A9467 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		774B1DCE2B837AC9001A9467 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		774B1DD02B837AE0001A9467 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		774B1DD22B837AED001A9467 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		774B1DD52B837B20001A9467 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		774B1DD72B837B3E001A9467 /* BreedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResponse.swift; sourceTree = "<group>"; };
+		774B1DD92B837B60001A9467 /* BreedEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedEndPoint.swift; sourceTree = "<group>"; };
+		774B1DDB2B837B70001A9467 /* BreedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedViewModel.swift; sourceTree = "<group>"; };
+		774B1DDD2B837B93001A9467 /* BreedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedView.swift; sourceTree = "<group>"; };
+		774B1DDF2B837BB4001A9467 /* BreedViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedViewRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +73,11 @@
 		774B1DAD2B8359AF001A9467 /* DogList */ = {
 			isa = PBXGroup;
 			children = (
-				774B1DAE2B8359AF001A9467 /* DogListApp.swift */,
 				774B1DBC2B835A72001A9467 /* SplashScreenView.swift */,
-				774B1DB02B8359AF001A9467 /* ContentView.swift */,
+				774B1DD42B837B14001A9467 /* Breeds */,
+				774B1DC92B837A7E001A9467 /* Network */,
+				774B1DBE2B8365F6001A9467 /* Model */,
+				774B1DAE2B8359AF001A9467 /* DogListApp.swift */,
 				774B1DB22B8359B2001A9467 /* Assets.xcassets */,
 				774B1DB42B8359B2001A9467 /* Preview Content */,
 			);
@@ -68,6 +90,38 @@
 				774B1DB52B8359B2001A9467 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		774B1DBE2B8365F6001A9467 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		774B1DC92B837A7E001A9467 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				774B1DD22B837AED001A9467 /* Endpoint.swift */,
+				774B1DD02B837AE0001A9467 /* RequestMethod.swift */,
+				774B1DCE2B837AC9001A9467 /* RequestError.swift */,
+				774B1DCC2B837AAF001A9467 /* HTTPClient.swift */,
+				774B1DCA2B837A9E001A9467 /* NetworkClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		774B1DD42B837B14001A9467 /* Breeds */ = {
+			isa = PBXGroup;
+			children = (
+				774B1DD52B837B20001A9467 /* Breed.swift */,
+				774B1DD72B837B3E001A9467 /* BreedResponse.swift */,
+				774B1DD92B837B60001A9467 /* BreedEndPoint.swift */,
+				774B1DDB2B837B70001A9467 /* BreedViewModel.swift */,
+				774B1DDD2B837B93001A9467 /* BreedView.swift */,
+				774B1DDF2B837BB4001A9467 /* BreedViewRow.swift */,
+			);
+			path = Breeds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774B1DB12B8359AF001A9467 /* ContentView.swift in Sources */,
+				774B1DE02B837BB4001A9467 /* BreedViewRow.swift in Sources */,
+				774B1DD62B837B21001A9467 /* Breed.swift in Sources */,
+				774B1DDC2B837B70001A9467 /* BreedViewModel.swift in Sources */,
+				774B1DD82B837B3E001A9467 /* BreedResponse.swift in Sources */,
+				774B1DD12B837AE0001A9467 /* RequestMethod.swift in Sources */,
+				774B1DD32B837AED001A9467 /* Endpoint.swift in Sources */,
+				774B1DDE2B837B93001A9467 /* BreedView.swift in Sources */,
+				774B1DCF2B837AC9001A9467 /* RequestError.swift in Sources */,
+				774B1DCB2B837A9E001A9467 /* NetworkClient.swift in Sources */,
+				774B1DCD2B837AAF001A9467 /* HTTPClient.swift in Sources */,
+				774B1DDA2B837B60001A9467 /* BreedEndPoint.swift in Sources */,
 				774B1DAF2B8359AF001A9467 /* DogListApp.swift in Sources */,
 				774B1DBD2B835A72001A9467 /* SplashScreenView.swift in Sources */,
 			);
