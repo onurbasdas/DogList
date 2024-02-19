@@ -18,8 +18,8 @@ class BreedDetailViewModel: ObservableObject {
         self.httpClient = httpClient
     }
     
-    func getBreedDetails(breed: Breed) {
-        let endPoint = BreedDetailEndPoint(breedName: breed.name)
+    func getBreedDetails(breed: DogNameAndImage) {
+        let endPoint = BreedDetailEndPoint(breedName: breed.dogName)
     
         Task {
             let result =   await httpClient.sendRequest(endpoint: endPoint, responseModel: BreedDetailResponse.self)

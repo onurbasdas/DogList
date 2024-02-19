@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SDWebImage
 
 struct BreedDetailView: View {
     @StateObject var breedDetailViewModel = BreedDetailViewModel()
+    @State private var isShowingPopup = false
     @State var breed: DogNameAndImage
     
     var body: some View {
@@ -20,11 +22,43 @@ struct BreedDetailView: View {
             } placeholder: {
                 ProgressView()
             }
-            .frame(width: 100, height: 100)
+            .frame(width: 400, height: 400)
             
             Text(breed.dogName)
                 .font(.caption)
+                .fontWeight(.semibold)
                 .lineLimit(1)
-        }.navigationTitle(breed.dogName)
+            
+            Button("Show Popup") {
+                isShowingPopup.toggle()
+                breedDetailViewModel.getBreedDetails(breed: breed)
+            }
+            .sheet(isPresented: $isShowingPopup) {
+                PopupView(name: breed.dogName)
+            }
+        }
+        .navigationTitle(breed.dogName)
+    }
+}
+
+struct PopupView: View {
+    var name: String
+    
+    var body: some View {
+        VStack {
+            AsyncImage(url: URL(string: name)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 200, height: 200)
+            
+            Button("Close") {
+                
+            }
+            .padding()
+        }
     }
 }
