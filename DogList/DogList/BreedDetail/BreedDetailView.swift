@@ -9,33 +9,22 @@ import SwiftUI
 
 struct BreedDetailView: View {
     @StateObject var breedDetailViewModel = BreedDetailViewModel()
-    @State var breed: Breed
+    @State var breed: DogNameAndImage
     
     var body: some View {
         VStack {
-            List {
-                ForEach(breedDetailViewModel.breedDetail, id: \.self) { breedDetail in
-                    AsyncImage(url: URL(string: breedDetail.imageName)) { phase in
-                        switch phase {
-                        case .success(let image):
-                            image
-                        case .failure(let error):
-                            Text("error: \(error.localizedDescription)")
-                        case .empty:
-                            ProgressView()
-                        @unknown default:
-                            fatalError()
-                        }
-                    }
-                }
+            AsyncImage(url: URL(string: breed.dogImage)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                ProgressView()
             }
-            .onAppear {
-                breedDetailViewModel.getBreedDetails(breed: breed)
-            }
-        }.navigationTitle(breed.name)
+            .frame(width: 100, height: 100)
+            
+            Text(breed.dogName)
+                .font(.caption)
+                .lineLimit(1)
+        }.navigationTitle(breed.dogName)
     }
-}
-
-#Preview {
-    BreedDetailView(breed: Breed(name: "Mock", subTitle: ""))
 }

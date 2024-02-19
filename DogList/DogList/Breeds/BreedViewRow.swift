@@ -10,23 +10,27 @@ import SDWebImage
 
 struct BreedViewRow: View {
     
-    let breed: Breed
-    let breedImage: BreedDetail
+//    let breed: Breed
+    let breedNewMode: DogNameAndImage
+//    let breedImage: BreedDetail
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: breedImage.imageName)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
+            AsyncImage(url: URL(string: breedNewMode.dogImage)) { image in
+             image
+                 .resizable()
+                 .scaledToFit()
             } placeholder: {
-                ProgressView()
+             ProgressView()
             }
             .frame(width: 100, height: 100)
             
-            Text(breed.name)
+            Text(breedNewMode.dogName)
                 .font(.caption)
                 .lineLimit(1)
         }
     }
 }
+
+
+/* */

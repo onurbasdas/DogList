@@ -25,11 +25,11 @@ struct BreedView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(breedViewModel.breeds.filter {
-                            searchText.isEmpty ? true : $0.name.localizedCaseInsensitiveContains(searchText)
+                        ForEach(breedViewModel.dogAndNameArray.filter {
+                            searchText.isEmpty ? true : $0.dogName.localizedCaseInsensitiveContains(searchText)
                         }, id: \.self) { breed in
                             NavigationLink(destination: BreedDetailView(breed: breed)) {
-                                BreedViewRow(breed: breed)
+                                BreedViewRow(breedNewMode: breed)
                                     .aspectRatio(1, contentMode: .fit)
                                     .background(Color.gray)
                                     .cornerRadius(10)

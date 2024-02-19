@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DogNameAndImage {
+struct DogNameAndImage: Hashable {
     var dogName: String
     var dogImage: String
 }
@@ -18,8 +18,7 @@ class BreedViewModel: ObservableObject {
     let httpClient: HTTPClient
     
     @Published var breeds: [Breed]  = []
-    
-    var dogAndNameArray: [DogNameAndImage] = []
+    @Published var dogAndNameArray: [DogNameAndImage] = []
     
     init(httpClient: HTTPClient = NetworkClient()) {
         self.httpClient = httpClient
@@ -50,8 +49,8 @@ class BreedViewModel: ObservableObject {
         Task {
             let result = await httpClient.sendRequest(endpoint: endPoint, responseModel: BreedDetailResponse.self)
             switch result {
-            case .success(let bredResponse): break
-//                self.breedDetail = bredResponse
+            case .success(let bredResponse):
+                dogAndNameArray.append(DogNameAndImage(dogName: image, dogImage: bredResponse.message.first ?? ""))
             case .failure:
                 self.breeds = []
             }
