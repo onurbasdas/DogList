@@ -6,15 +6,27 @@
 //
 
 import SwiftUI
+import SDWebImage
 
 struct BreedViewRow: View {
     
     let breed: Breed
+    let breedImage: BreedDetail
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(breed.name).fontWeight(.bold).font(.title2)
-            Text(breed.subTitle)
+        VStack {
+            AsyncImage(url: URL(string: breedImage.imageName)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 100, height: 100)
             
+            Text(breed.name)
+                .font(.caption)
+                .lineLimit(1)
         }
     }
 }

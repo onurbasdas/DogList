@@ -15,3 +15,9 @@ struct DogListApp: App {
         }
     }
 }
+
+var rootController: UIViewController? {
+    var root = UIApplication.shared.windows.first?.rootViewController
+    if let presenter = root?.presentedViewController { root = presenter }
+    return root
+}
