@@ -10,27 +10,36 @@ import SDWebImage
 
 struct BreedViewRow: View {
     
-//    let breed: Breed
     let breedNewMode: DogNameAndImage
-//    let breedImage: BreedDetail
     
     var body: some View {
-        VStack {
+        ZStack {
             AsyncImage(url: URL(string: breedNewMode.dogImage)) { image in
-             image
-                 .resizable()
-                 .scaledToFit()
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 170, height: 170)
             } placeholder: {
-             ProgressView()
+                Image(systemName: "plus")
+                    .frame(width: 170, height: 170)
             }
-            .frame(width: 100, height: 100)
+            .background(Color.white)
+            
+            Rectangle()
+                .fill(Color.black)
+                .opacity(0.5)
+                .blur(radius: 5)
+                .cornerRadius(8)
+                .frame(width: 150, height: 40)
+                .offset(x: -85, y: 70)
             
             Text(breedNewMode.dogName)
                 .font(.caption)
+                .fontWeight(.bold)
                 .lineLimit(1)
+                .foregroundColor(.white)
+                .padding(.leading, -80)
+                .padding(.top, 140)
         }
     }
 }
-
-
-/* */

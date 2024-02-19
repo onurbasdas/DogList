@@ -36,7 +36,6 @@ class BreedViewModel: ObservableObject {
                     let subTitle = values?.joined(separator: ",  ")
                     
                     return Breed(name: $0.capitalized, subTitle: subTitle ?? "")
-                }.sorted { $0.name < $1.name
                 }
             case .failure:
                 self.breeds = []
