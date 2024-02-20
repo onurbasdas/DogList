@@ -14,10 +14,6 @@ This mobile app allows users to explore various dog breeds, view images, and gen
 
 - **Dog Breed List:** On the home screen, dog breeds are listed with their images and names. The user can filter breeds using the input field located above the bottom bar.
 
-- **Expandable Input:** The input field is expandable, allowing users to slide and extend it for a better user experience. Inspiration for this feature can be found in apps like Genie or Slack.
-
-- **Bottom Sheet for Details:** Clicking on a dog breed opens a bottom sheet, revealing a "Generate" button. Upon clicking the "Generate" button, a random image for that breed is generated and displayed, similar to the design in Figma.
-
 
 ## Usage
 
