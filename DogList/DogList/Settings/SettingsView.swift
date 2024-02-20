@@ -17,6 +17,7 @@ struct SettingsView: View {
             VStack(alignment: .center, spacing: 0) {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
+                        HelpView
                         RatingShareView
                         PrivacySupportView
                         OSVersionView
@@ -30,6 +31,56 @@ struct SettingsView: View {
     }
 }
 
+//MARK: Help View
+private extension SettingsView {
+    var HelpView: some View {
+        VStack {
+            Color.white.frame(height: 1).opacity(0.1)
+            SettingsItem(title: "Help", icon: "info.circle") {
+                
+            }
+        }
+    }
+}
+
+
+
+//MARK: Rate & Share View
+private extension SettingsView {
+    var RatingShareView: some View {
+        VStack {
+            Color.white.frame(height: 1).opacity(0.1)
+            SettingsItem(title: "Rate App", icon: "star") {
+                if let scene = UIApplication.shared.windows.first?.windowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                }
+            }
+            Color.white.frame(height: 1).opacity(0.1)
+            SettingsItem(title: "Share App", icon: "square.and.arrow.up") {
+                let shareController = UIActivityViewController(activityItems: [AppConfig.myAppURL], applicationActivities: nil)
+                rootController?.present(shareController, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+//MARK: Private Policy View
+private extension SettingsView {
+    var PrivacySupportView: some View {
+        VStack {
+            Color.white.frame(height: 1).opacity(0.1)
+            SettingsItem(title: "Terms of Use", icon: "doc.text") {
+                UIApplication.shared.open(AppConfig.termsAndConditionsURL, options: [:], completionHandler: nil)
+            }
+            Color.white.frame(height: 1).opacity(0.1)
+            SettingsItem(title: "Privacy Policy", icon: "hand.raised") {
+                UIApplication.shared.open(AppConfig.privacyURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+}
+
+//MARK: OS Version View
 private extension SettingsView {
     var OSVersionView: some View {
         HStack {
@@ -69,38 +120,6 @@ private extension SettingsView {
     }
 }
 
-private extension SettingsView {
-    var RatingShareView: some View {
-        VStack {
-            Color.white.frame(height: 1).opacity(0.1)
-            SettingsItem(title: "Rate App", icon: "star") {
-                if let scene = UIApplication.shared.windows.first?.windowScene {
-                    SKStoreReviewController.requestReview(in: scene)
-                }
-            }
-            Color.white.frame(height: 1).opacity(0.1)
-            SettingsItem(title: "Share App", icon: "square.and.arrow.up") {
-                let shareController = UIActivityViewController(activityItems: [AppConfig.myAppURL], applicationActivities: nil)
-                rootController?.present(shareController, animated: true, completion: nil)
-            }
-        }
-    }
-}
-
-private extension SettingsView {
-    var PrivacySupportView: some View {
-        VStack {
-            Color.white.frame(height: 1).opacity(0.1)
-            SettingsItem(title: "Terms of Use", icon: "doc.text") {
-                UIApplication.shared.open(AppConfig.termsAndConditionsURL, options: [:], completionHandler: nil)
-            }
-            Color.white.frame(height: 1).opacity(0.1)
-            SettingsItem(title: "Privacy Policy", icon: "hand.raised") {
-                UIApplication.shared.open(AppConfig.privacyURL, options: [:], completionHandler: nil)
-            }
-        }
-    }
-}
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
