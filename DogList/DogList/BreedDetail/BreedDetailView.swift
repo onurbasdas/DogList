@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct BreedDetailView: View {
     @StateObject var breedDetailViewModel = BreedDetailViewModel()
@@ -13,32 +14,39 @@ struct BreedDetailView: View {
     @State var breed: DogNameAndImage
     
     var body: some View {
-        VStack {
-            AsyncImage(url: URL(string: breed.dogImage)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            } placeholder: {
-                ProgressView()
+        ZStack {
+            VStack {
+                AsyncImage(url: URL(string: breed.dogImage)) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 400, height: 400)
+                
+                Text(breed.dogName)
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .lineLimit(1)
+                
+                Button("Generate") {
+                    breedDetailViewModel.getBreedDetails(breed: breed)
+                    isPopupPresented = true
+                }
             }
-            .frame(width: 400, height: 400)
-            
-            Text(breed.dogName)
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .lineLimit(1)
-            
-            Button("Generate") {
-                breedDetailViewModel.getBreedDetails(breed: breed)
-                isPopupPresented.toggle()
-            }
-            .sheet(isPresented: $isPopupPresented) {
+            .popup(isPresented: $isPopupPresented) {
                 PopupView(viewModel: breedDetailViewModel, isPresented: $isPopupPresented)
+            } customize: {
+                $0
+                    .closeOnTap(false)
+                    .backgroundColor(.black.opacity(0.4))
             }
+            .navigationTitle(breed.dogName)
         }
-        .navigationTitle(breed.dogName)
     }
 }
+
 
 struct PopupView: View {
     @ObservedObject var viewModel: BreedDetailViewModel
@@ -53,12 +61,21 @@ struct PopupView: View {
             } placeholder: {
                 ProgressView()
             }
-            .frame(width: 200, height: 200)
+            .frame(width: 256, height: 256)
+            .padding()
             
-            Button("Close") {
+            Button {
                 isPresented = false
+            } label: {
+                Image("ic_generateImageClose")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding()
+                    .cornerRadius(8)
             }
             .padding()
         }
+        .frame(width: 300, height: 250)
     }
 }
+
