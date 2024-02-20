@@ -25,16 +25,15 @@ struct BreedDetailView: View {
             .frame(width: 400, height: 400)
             
             Text(breed.dogName)
-                .font(.caption)
+                .font(.largeTitle)
                 .fontWeight(.semibold)
                 .lineLimit(1)
             
-            Button("Show Popup") {
+            Button("Generate") {
                 isShowingPopup.toggle()
-                breedDetailViewModel.getBreedDetails(breed: breed)
             }
             .sheet(isPresented: $isShowingPopup) {
-                PopupView(name: breed.dogName)
+                PopupView(name: breed.dogImage)
             }
         }
         .navigationTitle(breed.dogName)

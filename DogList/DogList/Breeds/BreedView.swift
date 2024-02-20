@@ -17,12 +17,6 @@ struct BreedView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Search", text: $searchText)
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .padding()
-                
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(breedViewModel.dogAndNameArray.filter {
@@ -38,6 +32,11 @@ struct BreedView: View {
                     }
                     .padding(.horizontal)
                 }
+                TextField("Search", text: $searchText)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .padding()
             }
             .navigationTitle("Dog List")
             .navigationBarTitleDisplayMode(.inline)
