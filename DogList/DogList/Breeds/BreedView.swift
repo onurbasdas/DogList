@@ -13,6 +13,7 @@ struct BreedView: View {
     @StateObject var breedViewModel = BreedViewModel()
     @State private var searchText = ""
     @State private var selectedBreed: DogNameAndImage? = nil
+    @State private var isDetailPressed = false
     
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
@@ -34,6 +35,7 @@ struct BreedView: View {
                                 .cornerRadius(10)
                                 .onTapGesture {
                                     selectedBreed = breed
+                                    isDetailPressed = true
                                 }
                         }
                     }
@@ -53,12 +55,11 @@ struct BreedView: View {
             get: { selectedBreed != nil },
             set: { _ in selectedBreed = nil }
         )) {
-            BreedDetailView(breed: selectedBreed ?? DogNameAndImage(dogName: "", dogImage: ""))
+            BreedDetailView(breed: selectedBreed ?? DogNameAndImage(dogName: "", dogImage: ""), closeDetail: $isDetailPressed)
         } customize: {
             $0
                 .closeOnTap(false)
                 .backgroundColor(.black.opacity(0.4))
         }
-        
     }
 }

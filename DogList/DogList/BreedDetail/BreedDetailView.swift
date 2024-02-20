@@ -12,29 +12,53 @@ struct BreedDetailView: View {
     @StateObject var breedDetailViewModel = BreedDetailViewModel()
     @State private var isPopupPresented = false
     @State var breed: DogNameAndImage
+    @Binding var closeDetail: Bool
     
     var body: some View {
         ZStack {
             VStack {
-                
-                AsyncImage(url: URL(string: breed.dogImage)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
+                ZStack {
+                    AsyncImage(url: URL(string: breed.dogImage)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 350, height: 350)
+                            .clipped()
+                            .offset(y: -60)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 350, height: 350)
+                    
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Button {
+                                closeDetail = false
+                            } label: {
+                                Image("ic_generateImageClose")
+                                    .padding()
+                            }
+                        }
+                        Spacer()
+                    }
                 }
-                .frame(width: 350, height: 350)
-                
                 Text(breed.dogName)
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .lineLimit(1)
-                
+                    .offset(y: -20)
+                    .padding()
+                    .foregroundColor(.blue)
                 Button("Generate") {
                     breedDetailViewModel.getBreedDetails(breed: breed)
                     isPopupPresented = true
                 }
+                .frame(width: 312, height: 56)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                .padding()
             }
             .popup(isPresented: $isPopupPresented) {
                 PopupView(viewModel: breedDetailViewModel, isPresented: $isPopupPresented)
@@ -47,6 +71,7 @@ struct BreedDetailView: View {
             .background(Color.white)
         }
         .navigationTitle(breed.dogName)
+        .cornerRadius(12)
     }
 }
 
@@ -60,7 +85,8 @@ struct PopupView: View {
             AsyncImage(url: URL(string: viewModel.breedDetail.first?.imageName ?? "")) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
+                    .clipped()
             } placeholder: {
                 ProgressView()
             }
@@ -79,15 +105,5 @@ struct PopupView: View {
             .padding()
         }
         .frame(width: 300, height: 250)
-    }
-}
-
-struct BreedDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        let dummyBreed = DogNameAndImage(dogName: "Dummy Breed", dogImage: "dummy_image_url")
-        
-        BreedDetailView(breed: dummyBreed)
-            .previewLayout(.sizeThatFits)
-            .padding()
     }
 }
