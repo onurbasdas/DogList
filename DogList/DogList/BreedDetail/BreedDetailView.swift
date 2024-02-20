@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImage
 
 struct BreedDetailView: View {
     @StateObject var breedDetailViewModel = BreedDetailViewModel()

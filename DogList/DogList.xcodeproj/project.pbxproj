@@ -31,7 +31,6 @@
 		774B1DF12B83BED4001A9467 /* BreedDetailEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DF02B83BED4001A9467 /* BreedDetailEndPoint.swift */; };
 		774B1DF32B83BEF5001A9467 /* BreedDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DF22B83BEF5001A9467 /* BreedDetailResponse.swift */; };
 		774B1DF52B83BF0F001A9467 /* BreedDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1DF42B83BF0F001A9467 /* BreedDetail.swift */; };
-		774B1DF82B83E1E4001A9467 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 774B1DF72B83E1E4001A9467 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774B1DF82B83E1E4001A9467 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +184,6 @@
 			);
 			name = DogList;
 			packageProductDependencies = (
-				774B1DF72B83E1E4001A9467 /* SDWebImage */,
 			);
 			productName = DogList;
 			productReference = 774B1DAB2B8359AF001A9467 /* DogList.app */;
@@ -217,7 +214,6 @@
 			);
 			mainGroup = 774B1DA22B8359AF001A9467;
 			packageReferences = (
-				774B1DF62B83E1E4001A9467 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 774B1DAC2B8359AF001A9467 /* Products */;
 			projectDirPath = "";
@@ -470,25 +466,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		774B1DF62B83E1E4001A9467 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.18.11;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		774B1DF72B83E1E4001A9467 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 774B1DF62B83E1E4001A9467 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 774B1DA32B8359AF001A9467 /* Project object */;
 }
