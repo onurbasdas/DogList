@@ -16,6 +16,7 @@ struct BreedDetailView: View {
     var body: some View {
         ZStack {
             VStack {
+                
                 AsyncImage(url: URL(string: breed.dogImage)) { image in
                     image
                         .resizable()
@@ -23,7 +24,7 @@ struct BreedDetailView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 400, height: 400)
+                .frame(width: 350, height: 350)
                 
                 Text(breed.dogName)
                     .font(.largeTitle)
@@ -42,8 +43,10 @@ struct BreedDetailView: View {
                     .closeOnTap(false)
                     .backgroundColor(.black.opacity(0.4))
             }
-            .navigationTitle(breed.dogName)
+            .frame(width: 350, height: 600)
+            .background(Color.white)
         }
+        .navigationTitle(breed.dogName)
     }
 }
 
@@ -79,3 +82,12 @@ struct PopupView: View {
     }
 }
 
+struct BreedDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let dummyBreed = DogNameAndImage(dogName: "Dummy Breed", dogImage: "dummy_image_url")
+        
+        BreedDetailView(breed: dummyBreed)
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
+}
