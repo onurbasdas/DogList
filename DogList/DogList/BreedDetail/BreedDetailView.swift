@@ -10,7 +10,7 @@ import SDWebImage
 
 struct BreedDetailView: View {
     @StateObject var breedDetailViewModel = BreedDetailViewModel()
-    @State private var isShowingPopup = false
+    @State private var isPopupPresented = false
     @State var breed: DogNameAndImage
     
     var body: some View {
@@ -30,10 +30,11 @@ struct BreedDetailView: View {
                 .lineLimit(1)
             
             Button("Generate") {
-                isShowingPopup.toggle()
+                breedDetailViewModel.getBreedDetails(breed: breed)
+                isPopupPresented.toggle()
             }
-            .sheet(isPresented: $isShowingPopup) {
-                PopupView(name: breed.dogImage)
+            .sheet(isPresented: $isPopupPresented) {
+                PopupView(viewModel: breedDetailViewModel, isPresented: $isPopupPresented)
             }
         }
         .navigationTitle(breed.dogName)
@@ -41,11 +42,12 @@ struct BreedDetailView: View {
 }
 
 struct PopupView: View {
-    var name: String
+    @ObservedObject var viewModel: BreedDetailViewModel
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: name)) { image in
+            AsyncImage(url: URL(string: viewModel.breedDetail.first?.imageName ?? "")) { image in
                 image
                     .resizable()
                     .scaledToFit()
@@ -55,7 +57,7 @@ struct PopupView: View {
             .frame(width: 200, height: 200)
             
             Button("Close") {
-                
+                isPresented = false
             }
             .padding()
         }
